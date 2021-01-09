@@ -45,9 +45,9 @@ function setup(){
     log4 = new Log(760,120,150, PI/7);
     log5 = new Log(870,120,150, -PI/7);
 
-    bird = new Bird(150,100);
+    bird = new Bird(200, 50);
 
-    slingShot = new SlingShot(150, 100, bird.body);
+    slingShot = new SlingShot({x:200, y:50}, bird.body);
 
 }
 
