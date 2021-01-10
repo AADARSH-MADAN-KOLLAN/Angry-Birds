@@ -5,6 +5,10 @@ var box1, pig1;
 var backgroundIm;
 var slingShot;
 
+var GS = "onSling"
+
+var array1 = [[1, 2, 3, 4, 5], "name", [1,2]];
+
 var score;
 
 function preload(){
@@ -56,6 +60,7 @@ function keyPressed() {
       World.remove(world, bird.body);
       bird = new Bird(150, 100, 25);
       slingShot.attach(bird.body);
+      GS = "onsling";
     }
 
     if(key === "r"){
@@ -64,19 +69,22 @@ function keyPressed() {
 }
 
 function mouseReleased() {
-    slingShot.go();
+    //if(bird.body.position.x < 201){
+        slingShot.go();
+    //}
+    GS = "launched";
 }
 
 function mouseDragged() {
-    Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+    if(GS !== "launched"){
+        Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+    }
 }
 
 function draw(){
     background(backgroundIm);
     Engine.update(engine);
-    // console.log(box2.body.position.x);
-    // console.log(box2.body.position.y);
-    // console.log(box2.body.angle);
+
     box1.display();
     box2.display();
     ground.display();
