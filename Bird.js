@@ -9,7 +9,7 @@ class Bird extends BaseClass{
   }
   display(){
     super.display();
-    if(this.body.position.x > 240 && this.body.velocity.x > 5){
+    if(this.body.position.x > 240 && this.body.velocity.x > 10){
       var pos = [this.body.position.x, this.body.position.y]
       this.trajectory.push(pos);
     }
